@@ -1,0 +1,12 @@
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\bin\Debug\net5.0\ProjetoAngular.Domain.deps.json
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\bin\Debug\net5.0\ProjetoAngular.Domain.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\bin\Debug\net5.0\ref\ProjetoAngular.Domain.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\bin\Debug\net5.0\ProjetoAngular.Domain.pdb
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\obj\Debug\net5.0\ProjetoAngular.Domain.csproj.AssemblyReference.cache
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\obj\Debug\net5.0\ProjetoAngular.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\obj\Debug\net5.0\ProjetoAngular.Domain.AssemblyInfoInputs.cache
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\obj\Debug\net5.0\ProjetoAngular.Domain.AssemblyInfo.cs
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\obj\Debug\net5.0\ProjetoAngular.Domain.csproj.CoreCompileInputs.cache
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\obj\Debug\net5.0\ProjetoAngular.Domain.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\obj\Debug\net5.0\ref\ProjetoAngular.Domain.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Domain\obj\Debug\net5.0\ProjetoAngular.Domain.pdb

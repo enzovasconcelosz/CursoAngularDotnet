@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProjetoAngular.Domain\ProjetoAngular.Domain.csproj" />
+    <ProjectReference Include="..\ProjetoAngular.Persistence\ProjetoAngular.Persistence.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1"></PackageReference>
+  </ItemGroup>
+
+</Project>

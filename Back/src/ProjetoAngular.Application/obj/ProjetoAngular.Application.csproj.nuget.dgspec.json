@@ -1,0 +1,212 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Application\\ProjetoAngular.Application.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Application\\ProjetoAngular.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Application\\ProjetoAngular.Application.csproj",
+        "projectName": "ProjetoAngular.Application",
+        "projectPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Application\\ProjetoAngular.Application.csproj",
+        "packagesPath": "C:\\Users\\enzo.morais\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\enzo.morais\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Domain\\ProjetoAngular.Domain.csproj": {
+                "projectPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Domain\\ProjetoAngular.Domain.csproj"
+              },
+              "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Persistence\\ProjetoAngular.Persistence.csproj": {
+                "projectPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Persistence\\ProjetoAngular.Persistence.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[8.1.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Domain\\ProjetoAngular.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Domain\\ProjetoAngular.Domain.csproj",
+        "projectName": "ProjetoAngular.Domain",
+        "projectPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Domain\\ProjetoAngular.Domain.csproj",
+        "packagesPath": "C:\\Users\\enzo.morais\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\enzo.morais\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Persistence\\ProjetoAngular.Persistence.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Persistence\\ProjetoAngular.Persistence.csproj",
+        "projectName": "ProjetoAngular.Persistence",
+        "projectPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Persistence\\ProjetoAngular.Persistence.csproj",
+        "packagesPath": "C:\\Users\\enzo.morais\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Persistence\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\enzo.morais\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net5.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net5.0": {
+            "targetAlias": "net5.0",
+            "projectReferences": {
+              "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Domain\\ProjetoAngular.Domain.csproj": {
+                "projectPath": "C:\\Users\\enzo.morais\\Desktop\\ProjetoAngular\\Back\\src\\ProjetoAngular.Domain\\ProjetoAngular.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net5.0": {
+          "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "target": "Package",
+              "version": "[5.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.408\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Pesistence.deps.json
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Pesistence.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ref\ProjetoAngular.Pesistence.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Pesistence.pdb
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Pesistence.csproj.AssemblyReference.cache
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Pesistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Pesistence.AssemblyInfoInputs.cache
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Pesistence.AssemblyInfo.cs
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Pesistence.csproj.CoreCompileInputs.cache
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Pesistence.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ref\ProjetoAngular.Pesistence.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Pesistence.pdb
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Domain.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Domain.pdb
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Pesistence.csproj.CopyComplete
