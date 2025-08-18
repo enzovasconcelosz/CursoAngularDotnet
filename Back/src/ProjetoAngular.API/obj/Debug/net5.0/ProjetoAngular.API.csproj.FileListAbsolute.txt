@@ -5,7 +5,6 @@ C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\bin\Debu
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\bin\Debug\net5.0\ProjetoAngular.API.runtimeconfig.json
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\bin\Debug\net5.0\ProjetoAngular.API.runtimeconfig.dev.json
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\bin\Debug\net5.0\ProjetoAngular.API.dll
-C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\bin\Debug\net5.0\ref\ProjetoAngular.API.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\bin\Debug\net5.0\ProjetoAngular.API.pdb
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.OpenApi.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
@@ -19,10 +18,8 @@ C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debu
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\ProjetoAngular.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\ProjetoAngular.API.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\staticwebassets\ProjetoAngular.API.StaticWebAssets.Manifest.cache
-C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\staticwebassets\ProjetoAngular.API.StaticWebAssets.xml
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\scopedcss\bundle\ProjetoAngular.API.styles.css
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\ProjetoAngular.API.RazorTargetAssemblyInfo.cache
-C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\ProjetoAngular.API.csproj.CopyComplete
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\ProjetoAngular.API.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\ref\ProjetoAngular.API.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\back\src\ProjetoAngular.API\obj\Debug\net5.0\ProjetoAngular.API.pdb
@@ -67,3 +64,6 @@ C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debu
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Newtonsoft.Json.Bson.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\AutoMapper.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\ref\ProjetoAngular.API.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\obj\Debug\net5.0\staticwebassets\ProjetoAngular.API.StaticWebAssets.xml
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\obj\Debug\net5.0\ProjetoAngular.API.csproj.CopyComplete

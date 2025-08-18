@@ -1,6 +1,7 @@
 using System;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using ProjetoAngular.Application.Contratos;
 using ProjetoAngular.Application.Dtos;
 using ProjetoAngular.Domain;
@@ -14,70 +15,68 @@ namespace ProjetoAngular.Application
 
         private readonly ILotePersist _lotePersist;
 
-        // private readonly IMapper _mapper;
+        private readonly IMapper _mapper;
 
         public LoteService(IGeralPersist geralPersist,
-                           ILotePersist lotePersist
-                           //    , IMapper mapper
-                           )
+                           ILotePersist lotePersist,
+                           IMapper mapper)
         {
             _geralPersist = geralPersist;
             _lotePersist = lotePersist;
-            // _mapper = mapper;
+            _mapper = mapper;
         }
 
-        public async Task AddLote(int eventoId, LoteDto model)
+        private async Task AddLote(int eventoId, LoteDto model)
         {
-            // try
-            // {
-            //     var lote = _mapper.Map<Lote>(model);
-            //     lote.EventoId = eventoId;
+            try
+            {
+                var lote = _mapper.Map<Lote>(model);
+                lote.EventoId = eventoId;
 
-            //     _geralPersist.Add<Lote>(lote);
+                _geralPersist.Add<Lote>(lote);
 
-            //     await _geralPersist.SaveChangesAsync();
-            // }
-            // catch (Exception ex)
-            // {
-            //     throw new Exception(ex.Message);
-            // }
+                await _geralPersist.SaveChangesAsync();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<LoteDto[]> SaveLotes(int eventoId, LoteDto[] models)
         {
-            // try
-            // {
-            //     var lotes = await _lotePersist.GetLotesByEventoIdAsync(eventoId);
-            //     if (lotes == null)
-            return null;
+            try
+            {
+                var lotes = await _lotePersist.GetLotesByEventoIdAsync(eventoId);
 
-            //     foreach (var model in models)
-            //     {
-            //         if (model.Id == 0)
-            //         {
-            //             await AddLote(eventoId, model);
-            //         }
-            //         else
-            //         {
-            //             var lote = lotes.FirstOrDefault(lote => lote.Id == model.Id);
-            //             model.EventoId = eventoId;
+                if (lotes is null)
+                    return null;
 
-            //             _mapper.Map(model, lote);
+                foreach (var model in models)
+                {
+                    if (model.Id == 0)
+                        await AddLote(eventoId, model);
+                    else
+                    {
+                        var lote = lotes.FirstOrDefault(lote => lote.Id == model.Id);
+                        model.EventoId = eventoId;
 
-            //             _geralPersist.Update<Lote>(lote);
+                        _mapper.Map(model, lote);
 
-            //             await _geralPersist.SaveChangesAsync();
-            //         }
-            //     }
+                        _geralPersist.Update<Lote>(lote);
 
-            //     var loteRetorno = await _lotePersist.GetLotesByEventoIdAsync(eventoId);
+                        await _geralPersist.SaveChangesAsync();
+                    }
+                }
 
-            //     return _mapper.Map<LoteDto[]>(loteRetorno);
-            // }
-            // catch (Exception ex)
-            // {
-            //     throw new Exception(ex.Message);
-            // }
+                var loteRetorno = await _lotePersist.GetLotesByEventoIdAsync(eventoId);
+
+                return _mapper.Map<LoteDto[]>(loteRetorno);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<bool> DeleteLote(int eventoId, int loteId)
@@ -85,7 +84,9 @@ namespace ProjetoAngular.Application
             try
             {
                 var lote = await _lotePersist.GetLoteByIdsAsync(eventoId, loteId);
-                if (lote == null) throw new Exception("Lote para delete não encontrado.");
+
+                if (lote is null)
+                    throw new Exception("Lote para exclusão não encontrado.");
 
                 _geralPersist.Delete<Lote>(lote);
                 return await _geralPersist.SaveChangesAsync();
@@ -98,38 +99,40 @@ namespace ProjetoAngular.Application
 
         public async Task<LoteDto[]> GetLotesByEventoIdAsync(int eventoId)
         {
-            // try
-            // {
-            //     var lotes = await _lotePersist.GetLotesByEventoIdAsync(eventoId);
-            //     if (lotes == null)
-            return null;
+            try
+            {
+                var lotes = await _lotePersist.GetLotesByEventoIdAsync(eventoId);
 
-            //     var resultado = _mapper.Map<LoteDto[]>(lotes);
+                if (lotes is null)
+                    return null;
 
-            //     return resultado;
-            // }
-            // catch (Exception ex)
-            // {
-            //     throw new Exception(ex.Message);
-            // }
+                var resultado = _mapper.Map<LoteDto[]>(lotes);
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
 
         public async Task<LoteDto> GetLoteByIdsAsync(int eventoId, int loteId)
         {
-            // try
-            // {
-            //     var lote = await _lotePersist.GetLoteByIdsAsync(eventoId, loteId);
-            //     if (lote == null)
-            return null;
+            try
+            {
+                var lote = await _lotePersist.GetLoteByIdsAsync(eventoId, loteId);
 
-            //     var resultado = _mapper.Map<LoteDto>(lote);
+                if (lote is null)
+                    return null;
 
-            //     return resultado;
-            // }
-            // catch (Exception ex)
-            // {
-            //     throw new Exception(ex.Message);
-            // }
+                var resultado = _mapper.Map<LoteDto>(lote);
+
+                return resultado;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
         }
     }
 }

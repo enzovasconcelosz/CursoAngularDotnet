@@ -1,6 +1,5 @@
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Persistence.deps.json
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Persistence.dll
-C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ref\ProjetoAngular.Persistence.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Persistence.pdb
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Domain.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Domain.pdb
@@ -8,7 +7,6 @@ C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.AssemblyInfoInputs.cache
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.AssemblyInfo.cs
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.csproj.CoreCompileInputs.cache
-C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.csproj.CopyComplete
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ref\ProjetoAngular.Persistence.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.pdb
@@ -16,3 +14,5 @@ C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ProjetoAngular.Persistence.runtimeconfig.dev.json
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.csproj.AssemblyReference.cache
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.genruntimeconfig.cache
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\bin\Debug\net5.0\ref\ProjetoAngular.Persistence.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Persistence\obj\Debug\net5.0\ProjetoAngular.Persistence.csproj.CopyComplete

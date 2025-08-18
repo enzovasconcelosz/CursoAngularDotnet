@@ -10,7 +10,7 @@ namespace ProjetoAngular.Persistence
     public class LotePersist : ILotePersist
     {
         private readonly ProjetoAngularContext _context;
-        
+
         public LotePersist(ProjetoAngularContext context)
         {
             _context = context;

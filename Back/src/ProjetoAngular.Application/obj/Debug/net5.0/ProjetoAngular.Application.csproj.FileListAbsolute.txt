@@ -1,6 +1,5 @@
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ProjetoAngular.Application.deps.json
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ProjetoAngular.Application.dll
-C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ref\ProjetoAngular.Application.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ProjetoAngular.Application.pdb
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\obj\Debug\net5.0\ProjetoAngular.Application.csproj.AssemblyReference.cache
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\obj\Debug\net5.0\ProjetoAngular.Application.GeneratedMSBuildEditorConfig.editorconfig
@@ -12,6 +11,7 @@ C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\obj\Debug\net5.0\ProjetoAngular.Application.pdb
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ProjetoAngular.Domain.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ProjetoAngular.Domain.pdb
-C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\obj\Debug\net5.0\ProjetoAngular.Application.csproj.CopyComplete
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ProjetoAngular.Persistence.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ProjetoAngular.Persistence.pdb
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\bin\Debug\net5.0\ref\ProjetoAngular.Application.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.Application\obj\Debug\net5.0\ProjetoAngular.Application.csproj.CopyComplete
