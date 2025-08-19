@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using ProjetoAngular.Domain.Identity;
 
 namespace ProjetoAngular.Domain
 {
@@ -10,10 +11,10 @@ namespace ProjetoAngular.Domain
 
         public int UserId { get; set; }
 
-        // public User User { get; set; }
+        public User User { get; set; }
 
         public IEnumerable<RedeSocial> RedesSociais { get; set; }
-        
+
         public IEnumerable<PalestranteEvento> PalestrantesEventos { get; set; }
     }
 }

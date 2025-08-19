@@ -1,132 +1,137 @@
-// using System;
-// using System.Threading.Tasks;
-// using Microsoft.EntityFrameworkCore;
-// using ProjetoAngular.Application.Contratos;
-// using ProjetoAngular.Application.Dtos;
-// using ProjetoAngular.Domain.Identity;
-// using ProjetoAngular.Persistence.Contratos;
+using System;
+using System.Threading.Tasks;
+using AutoMapper;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using ProjetoAngular.Application.Contratos;
+using ProjetoAngular.Application.Dtos;
+using ProjetoAngular.Domain.Identity;
+using ProjetoAngular.Persistence.Contratos;
 
-// namespace ProjetoAngular.Application
-// {
-//     public class AccountService 
-//     // : IAccountService
-//     {
-//         // private readonly UserManager<User> _userManager;
-//         // private readonly SignInManager<User> _signInManager;
-//         // private readonly IMapper _mapper;
-//         private readonly IUserPersist _userPersist;
+namespace ProjetoAngular.Application
+{
+    public class AccountService : IAccountService
+    {
+        private readonly UserManager<User> _userManager;
 
-//         public AccountService(
-//             // UserManager<User> userManager,
-//             //                   SignInManager<User> signInManager,
-//             //                   IMapper mapper,
-//                               IUserPersist userPersist)
-//         {
-//             // _userManager = userManager;
-//             // _signInManager = signInManager;
-//             // _mapper = mapper;
-//             _userPersist = userPersist;
-//         }
+        private readonly SignInManager<User> _signInManager;
 
-//         // public async Task<SignInResult> CheckUserPasswordAsync(UserUpdateDto userUpdateDto, string password)
-//         // {
-//         //     try
-//         //     {
-//         //         var user = await _userManager.Users
-//         //                                      .SingleOrDefaultAsync(user => user.UserName == userUpdateDto.UserName.ToLower());
+        private readonly IMapper _mapper;
 
-//         //         return await _signInManager.CheckPasswordSignInAsync(user, password, false);
-//         //     }
-//         //     catch (System.Exception ex)
-//         //     {
-//         //         throw new Exception($"Erro ao tentar verificar password. Erro: {ex.Message}");
-//         //     }
-//         // }
+        private readonly IUserPersist _userPersist;
 
-//         public async Task<UserUpdateDto> CreateAccountAsync(UserDto userDto)
-//         {
-//             // try
-//             // {
-//             //     var user = _mapper.Map<User>(userDto);
-//             //     var result = await _userManager.CreateAsync(user, userDto.Password);
+        public AccountService(UserManager<User> userManager,
+                              SignInManager<User> signInManager,
+                              IMapper mapper,
+                              IUserPersist userPersist)
+        {
+            _userManager = userManager;
+            _signInManager = signInManager;
+            _mapper = mapper;
+            _userPersist = userPersist;
+        }
 
-//             //     if (result.Succeeded)
-//             //     {
-//             //         var userToReturn = _mapper.Map<UserUpdateDto>(user);
-//             //         return userToReturn;
-//             //     }
+        public async Task<SignInResult> CheckUserPasswordAsync(UserUpdateDto userUpdateDto, string password)
+        {
+            try
+            {
+                var user = await _userManager.Users
+                                             .SingleOrDefaultAsync(user => user.UserName == userUpdateDto.UserName.ToLower());
 
-//                 return null;
-//             // }
-//             // catch (System.Exception ex)
-//             // {
-//             //     throw new Exception($"Erro ao tentar Criar Usuário. Erro: {ex.Message}");
-//             // }
-//         }
+                return await _signInManager.CheckPasswordSignInAsync(user, password, false);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao tentar verificar password. Erro: {ex.Message}");
+            }
+        }
 
-//         public async Task<UserUpdateDto> GetUserByUserNameAsync(string userName)
-//         {
-//             // try
-//             // {
-//             //     var user = await _userPersist.GetUserByUserNameAsync(userName);
-//             //     if (user == null)
-//                     return null;
+        public async Task<UserUpdateDto> CreateAccountAsync(UserDto userDto)
+        {
+            try
+            {
+                var user = _mapper.Map<User>(userDto);
+                var result = await _userManager.CreateAsync(user, userDto.Password);
 
-//             //     var userUpdateDto = _mapper.Map<UserUpdateDto>(user);
-//             //     return userUpdateDto;
-//             // }
-//             // catch (System.Exception ex)
-//             // {
-//             //     throw new Exception($"Erro ao tentar pegar Usuário por Username. Erro: {ex.Message}");
-//             // }
-//         }
+                if (result.Succeeded)
+                {
+                    var userToReturn = _mapper.Map<UserUpdateDto>(user);
+                    return userToReturn;
+                }
 
-//         public async Task<UserUpdateDto> UpdateAccount(UserUpdateDto userUpdateDto)
-//         {
-//             // try
-//             // {
-//             //     var user = await _userPersist.GetUserByUserNameAsync(userUpdateDto.UserName);
-//             //     if (user == null)
-//                     return null;
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao tentar criar usuário. Erro: {ex.Message}");
+            }
+        }
 
-//             //     userUpdateDto.Id = user.Id;
+        public async Task<UserUpdateDto> GetUserByUserNameAsync(string userName)
+        {
+            try
+            {
+                var user = await _userPersist.GetUserByUserNameAsync(userName);
 
-//             //     _mapper.Map(userUpdateDto, user);
+                if (user is null)
+                    return null;
 
-//             //     if (userUpdateDto.Password != null) {
-//             //         var token = await _userManager.GeneratePasswordResetTokenAsync(user);
-//             //         await _userManager.ResetPasswordAsync(user, token, userUpdateDto.Password);
-//             //     }
+                var userUpdateDto = _mapper.Map<UserUpdateDto>(user);
+                return userUpdateDto;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao tentar buscar usuário por username. Erro: {ex.Message}");
+            }
+        }
 
-//             //     _userPersist.Update<User>(user);
+        public async Task<UserUpdateDto> UpdateAccount(UserUpdateDto userUpdateDto)
+        {
+            try
+            {
+                var user = await _userPersist.GetUserByUserNameAsync(userUpdateDto.UserName);
 
-//             //     if (await _userPersist.SaveChangesAsync())
-//             //     {
-//             //         var userRetorno = await _userPersist.GetUserByUserNameAsync(user.UserName);
+                if (user is null)
+                    return null;
 
-//             //         return _mapper.Map<UserUpdateDto>(userRetorno);
-//             //     }
+                userUpdateDto.Id = user.Id;
 
-//             //     return null;
-//             // }
-//             // catch (System.Exception ex)
-//             // {
-//             //     throw new Exception($"Erro ao tentar atualizar usuário. Erro: {ex.Message}");
-//             // }
-//         }
+                _mapper.Map(userUpdateDto, user);
 
-//         public async Task<bool> UserExists(string userName)
-//         {
-//             return false;
-//             // try
-//             // {
-//             //     return await _userManager.Users
-//             //                              .AnyAsync(user => user.UserName == userName.ToLower());
-//             // }
-//             // catch (System.Exception ex)
-//             // {
-//             //     throw new Exception($"Erro ao verificar se usuário existe. Erro: {ex.Message}");
-//             // }
-//         }
-//     }
-// }
+                if (userUpdateDto.Password != null)
+                {
+                    var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                    await _userManager.ResetPasswordAsync(user, token, userUpdateDto.Password);
+                }
+
+                _userPersist.Update<User>(user);
+
+                if (await _userPersist.SaveChangesAsync())
+                {
+                    var userRetorno = await _userPersist.GetUserByUserNameAsync(user.UserName);
+
+                    return _mapper.Map<UserUpdateDto>(userRetorno);
+                }
+
+                return null;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao tentar atualizar usuário. Erro: {ex.Message}");
+            }
+        }
+
+        public async Task<bool> UserExists(string userName)
+        {
+            try
+            {
+                return await _userManager.Users
+                                         .AnyAsync(user => user.UserName == userName.ToLower());
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Erro ao verificar se usuário existe. Erro: {ex.Message}");
+            }
+        }
+    }
+}

@@ -1,7 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using ProjetoAngular.Application.Dtos;
 
 namespace ProjetoAngular.Application.Contratos
@@ -10,9 +8,9 @@ namespace ProjetoAngular.Application.Contratos
     {
         Task<bool> UserExists(string username);
 
-        Task<UserUpdateDto> GetUserByUserNameAsync(string username);
+        Task<UserUpdateDto> GetUserByUserNameAsync(string userName);
 
-        // Task<SignInResult> CheckUserPasswordAsync(UserUpdateDto userUpdateDto, string password);
+        Task<SignInResult> CheckUserPasswordAsync(UserUpdateDto userUpdateDto, string password);
 
         Task<UserUpdateDto> CreateAccountAsync(UserDto userDto);
 

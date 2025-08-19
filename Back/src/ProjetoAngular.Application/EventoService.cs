@@ -27,22 +27,18 @@ namespace ProjetoAngular.Application
             _mapper = mapper;
         }
 
-        public async Task<EventoDto> AddEventos(
-            // int userId,
-             EventoDto model)
+        public async Task<EventoDto> AddEventos(int userId, EventoDto model)
         {
             try
             {
                 var evento = _mapper.Map<Evento>(model);
 
-                //evento.UserId = userId;
+                evento.UserId = userId;
                 _geralPersist.Add<Evento>(evento);
 
                 if (await _geralPersist.SaveChangesAsync())
                 {
-                    var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(
-                        // userId,
-                        evento.Id, false);
+                    var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(userId, evento.Id, false);
                     return _mapper.Map<EventoDto>(eventoRetorno);
                 }
 
@@ -54,15 +50,11 @@ namespace ProjetoAngular.Application
             }
         }
 
-        public async Task<EventoDto> UpdateEvento(
-            // int userId,
-            int eventoId, EventoDto model)
+        public async Task<EventoDto> UpdateEvento(int userId, int eventoId, EventoDto model)
         {
             try
             {
-                var evento = await _eventoPersist.GetEventoByIdAsync(
-                    // userId,
-                    eventoId, false);
+                var evento = await _eventoPersist.GetEventoByIdAsync(userId, eventoId, false);
 
                 if (evento is null)
                     return null;
@@ -75,9 +67,7 @@ namespace ProjetoAngular.Application
 
                 if (await _geralPersist.SaveChangesAsync())
                 {
-                    var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(
-                        // userId,
-                        evento.Id, false);
+                    var eventoRetorno = await _eventoPersist.GetEventoByIdAsync(userId, evento.Id, false);
                     return _mapper.Map<EventoDto>(eventoRetorno);
                 }
 
@@ -89,15 +79,11 @@ namespace ProjetoAngular.Application
             }
         }
 
-        public async Task<bool> DeleteEvento(
-            // int userId,
-             int eventoId)
+        public async Task<bool> DeleteEvento(int userId, int eventoId)
         {
             try
             {
-                var evento = await _eventoPersist.GetEventoByIdAsync(
-                     // userId,
-                     eventoId, false);
+                var evento = await _eventoPersist.GetEventoByIdAsync(userId, eventoId, false);
 
                 if (evento is null)
                     throw new Exception("Evento para delete não encontrado.");
@@ -112,12 +98,12 @@ namespace ProjetoAngular.Application
             }
         }
 
-        public async Task<IEnumerable<EventoDto>> GetAllEventosAsync(bool includePalestrantes = false)
+        public async Task<IEnumerable<EventoDto>> GetAllEventosAsync(int userId, bool includePalestrantes = false)
         {
             try
             {
-                var eventos = await _eventoPersist.GetAllEventosAsync(
-                     // userId, pageParams,
+                var eventos = await _eventoPersist.GetAllEventosAsync(userId,
+                     //  pageParams,
                      includePalestrantes);
 
                 if (eventos is null)
@@ -145,16 +131,11 @@ namespace ProjetoAngular.Application
             }
         }
 
-        public async Task<EventoDto> GetEventoByIdAsync(
-            // int userId,
-
-            int eventoId, bool includePalestrantes = false)
+        public async Task<EventoDto> GetEventoByIdAsync(int userId, int eventoId, bool includePalestrantes = false)
         {
             try
             {
-                var evento = await _eventoPersist.GetEventoByIdAsync(
-                     // userId,
-                     eventoId, includePalestrantes);
+                var evento = await _eventoPersist.GetEventoByIdAsync(userId, eventoId, includePalestrantes);
 
                 if (evento is null)
                     return null;

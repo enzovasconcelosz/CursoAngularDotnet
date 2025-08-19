@@ -67,3 +67,15 @@ C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debu
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\ref\ProjetoAngular.API.dll
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\obj\Debug\net5.0\staticwebassets\ProjetoAngular.API.StaticWebAssets.xml
 C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\obj\Debug\net5.0\ProjetoAngular.API.csproj.CopyComplete
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.Internal.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Core.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.Extensions.Identity.Stores.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\enzo.morais\Desktop\ProjetoAngular\Back\src\ProjetoAngular.API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll

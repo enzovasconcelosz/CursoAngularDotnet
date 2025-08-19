@@ -1,8 +1,7 @@
-using System;
 using ProjetoAngular.Application.Dtos;
 using ProjetoAngular.Domain;
-using ProjetoAngular.Persistence.Models;
 using AutoMapper;
+using ProjetoAngular.Domain.Identity;
 
 namespace ProjetoAngular.Application.Helpers
 {
@@ -16,10 +15,9 @@ namespace ProjetoAngular.Application.Helpers
             CreateMap<Palestrante, PalestranteDto>().ReverseMap();
             CreateMap<Palestrante, PalestranteAddDto>().ReverseMap();
             CreateMap<Palestrante, PalestranteUpdateDto>().ReverseMap();
-
-            // CreateMap<User, UserDto>().ReverseMap();
-            // CreateMap<User, UserLoginDto>().ReverseMap();
-            // CreateMap<User, UserUpdateDto>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<User, UserLoginDto>().ReverseMap();
+            CreateMap<User, UserUpdateDto>().ReverseMap();
         }
     }
 }

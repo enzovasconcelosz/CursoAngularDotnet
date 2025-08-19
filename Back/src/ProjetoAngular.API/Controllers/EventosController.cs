@@ -11,7 +11,7 @@ using ProjetoAngular.API.Helpers;
 
 namespace ProjetoAngular.API.Controllers
 {
-    // [Authorize]
+    [Authorize]
     [ApiController]
     [Route("api/[controller]")]
     public class EventosController : ControllerBase
@@ -20,17 +20,16 @@ namespace ProjetoAngular.API.Controllers
 
         private readonly IUtil _util;
 
-        // private readonly IAccountService _accountService;
+        private readonly IAccountService _accountService;
 
         private readonly string _destino = "Images";
 
-        public EventosController(IEventoService eventoService, IUtil util
-        // ,
-        //                          IAccountService accountService
-                                 )
+        public EventosController(IEventoService eventoService,
+                                IUtil util,
+                                IAccountService accountService)
         {
             _util = util;
-            // _accountService = accountService;
+            _accountService = accountService;
             _eventoService = eventoService;
         }
 
@@ -39,7 +38,7 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                var eventos = await _eventoService.GetAllEventosAsync(true);
+                var eventos = await _eventoService.GetAllEventosAsync(User.GetUserId(), true);
 
                 if (eventos is null)
                     return NoContent();
@@ -60,9 +59,7 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                var evento = await _eventoService.GetEventoByIdAsync(
-                    // User.GetUserId(),
-                    id, true);
+                var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), id, true);
 
                 if (evento is null)
                     return NoContent();
@@ -81,9 +78,7 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                var evento = await _eventoService.GetEventoByIdAsync(
-                    // User.GetUserId(),
-                    eventoId, true);
+                var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), eventoId, true);
 
                 if (evento is null)
                     return NoContent();
@@ -96,9 +91,7 @@ namespace ProjetoAngular.API.Controllers
                     evento.ImagemURL = await _util.SaveImage(file, _destino);
                 }
 
-                var EventoRetorno = await _eventoService.UpdateEvento(
-                    // User.GetUserId(),
-                    eventoId, evento);
+                var EventoRetorno = await _eventoService.UpdateEvento(User.GetUserId(), eventoId, evento);
 
                 return Ok(EventoRetorno);
             }
@@ -115,9 +108,7 @@ namespace ProjetoAngular.API.Controllers
             Console.WriteLine("Entrou na controller");
             try
             {
-                var evento = await _eventoService.AddEventos(
-                     // 1,
-                     model);
+                var evento = await _eventoService.AddEventos(User.GetUserId(), model);
 
                 if (evento is null)
                     return NoContent();
@@ -136,9 +127,7 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                var evento = await _eventoService.UpdateEvento(
-                    // User.GetUserId(),
-                    id, model);
+                var evento = await _eventoService.UpdateEvento(User.GetUserId(), id, model);
 
                 if (evento is null)
                     return NoContent();
@@ -157,16 +146,12 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                var evento = await _eventoService.GetEventoByIdAsync(
-                     // User.GetUserId(),
-                     id, true);
+                var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), id, true);
 
                 if (evento is null)
                     return NoContent();
 
-                if (await _eventoService.DeleteEvento(
-                     // User.GetUserId(),
-                     id))
+                if (await _eventoService.DeleteEvento(User.GetUserId(), id))
                 {
                     _util.DeleteImage(evento.ImagemURL, _destino);
                     return Ok(true);

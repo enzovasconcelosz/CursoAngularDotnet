@@ -16,7 +16,9 @@ namespace ProjetoAngular.API.Controllers
     public class AccountController : ControllerBase
     {
         private readonly IAccountService _accountService;
+
         private readonly ITokenService _tokenService;
+
         private readonly IUtil _util;
 
         private readonly string _destino = "Perfil";
@@ -37,12 +39,13 @@ namespace ProjetoAngular.API.Controllers
             {
                 var userName = User.GetUserName();
                 var user = await _accountService.GetUserByUserNameAsync(userName);
+
                 return Ok(user);
             }
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar recuperar Usuário. Erro: {ex.Message}");
+                    $"Erro ao buscar usuário. Erro: {ex.Message}");
             }
         }
 
@@ -53,9 +56,10 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 if (await _accountService.UserExists(userDto.UserName))
-                    return BadRequest("Usuário já existe");
+                    return BadRequest("Usuário já existente.");
 
                 var user = await _accountService.CreateAccountAsync(userDto);
+
                 if (user != null)
                     return Ok(new
                     {
@@ -69,7 +73,7 @@ namespace ProjetoAngular.API.Controllers
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar Registrar Usuário. Erro: {ex.Message}");
+                    $"Erro ao tentar registrar usuário. Erro: {ex.Message}");
             }
         }
 
@@ -80,10 +84,14 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 var user = await _accountService.GetUserByUserNameAsync(userLogin.Username);
-                if (user == null) return Unauthorized("Usuário ou Senha está errado");
 
-                // var result = await _accountService.CheckUserPasswordAsync(user, userLogin.Password);
-                // if (!result.Succeeded) return Unauthorized();
+                if (user is null)
+                    return Unauthorized("Usuário ou Senha está errado");
+
+                var result = await _accountService.CheckUserPasswordAsync(user, userLogin.Password);
+
+                if (!result.Succeeded)
+                    return Unauthorized();
 
                 return Ok(new
                 {
@@ -105,13 +113,17 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 if (userUpdateDto.UserName != User.GetUserName())
-                    return Unauthorized("Usuário Inválido");
+                    return Unauthorized("Usuário inválido");
 
                 var user = await _accountService.GetUserByUserNameAsync(User.GetUserName());
-                if (user == null) return Unauthorized("Usuário Inválido");
+
+                if (user is null)
+                    return Unauthorized("Usuário inválido");
 
                 var userReturn = await _accountService.UpdateAccount(userUpdateDto);
-                if (userReturn == null) return NoContent();
+
+                if (userReturn is null)
+                    return NoContent();
 
                 return Ok(new
                 {
@@ -123,7 +135,7 @@ namespace ProjetoAngular.API.Controllers
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar Atualizar Usuário. Erro: {ex.Message}");
+                    $"Erro ao tentar atualizar usuário. Erro: {ex.Message}");
             }
         }
 
@@ -133,14 +145,18 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 var user = await _accountService.GetUserByUserNameAsync(User.GetUserName());
-                if (user == null) return NoContent();
+
+                if (user is null)
+                    return NoContent();
 
                 var file = Request.Form.Files[0];
+
                 if (file.Length > 0)
                 {
                     _util.DeleteImage(user.ImagemURL, _destino);
                     user.ImagemURL = await _util.SaveImage(file, _destino);
                 }
+
                 var userRetorno = await _accountService.UpdateAccount(user);
 
                 return Ok(userRetorno);
@@ -148,7 +164,7 @@ namespace ProjetoAngular.API.Controllers
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar realizar upload de Foto do Usuário. Erro: {ex.Message}");
+                    $"Erro ao tentar realizar upload de imagem do usuário. Erro: {ex.Message}");
             }
         }
     }

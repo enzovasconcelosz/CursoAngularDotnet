@@ -20,7 +20,7 @@ namespace ProjetoAngular.Persistence
         public async Task<PageList<Palestrante>> GetAllPalestrantesAsync(PageParams pageParams, bool includeEventos = false)
         {
             IQueryable<Palestrante> query = _context.Palestrantes
-                // .Include(p => p.User)
+                .Include(p => p.User)
                 .Include(p => p.RedesSociais);
 
             if (includeEventos)
@@ -38,14 +38,13 @@ namespace ProjetoAngular.Persistence
             //   p.User.UltimoNome.ToLower().Contains(pageParams.Term.ToLower())) &&
             //   p.User.Funcao == Domain.Enum.Funcao.Palestrante)
 
-
             return await PageList<Palestrante>.CreateAsync(query, pageParams.PageNumber, pageParams.pageSize);
         }
 
         public async Task<Palestrante> GetPalestranteByUserIdAsync(int userId, bool includeEventos)
         {
             IQueryable<Palestrante> query = _context.Palestrantes
-                // .Include(p => p.User)
+                .Include(p => p.User)
                 .Include(p => p.RedesSociais);
 
             if (includeEventos)

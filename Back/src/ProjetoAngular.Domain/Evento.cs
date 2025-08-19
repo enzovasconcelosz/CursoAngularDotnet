@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoAngular.Domain
 {
@@ -22,7 +21,7 @@ namespace ProjetoAngular.Domain
 
         public string EmailPrincipal { get; set; }
 
-        //public int UserId { get; set; }
+        public int UserId { get; set; }
 
         public IEnumerable<Lote> Lotes { get; set; }
 

@@ -1,10 +1,10 @@
-// using System.Collections.Generic;
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Identity;
 
-// namespace ProjetoAngular.Domain.Identity
-// {
-//     public class Role 
-//     // : IdentityRole<int>
-//     {
-//         public List<UserRole> UserRoles { get; set; }
-//     }
-// }
+namespace ProjetoAngular.Domain.Identity
+{
+    public class Role : IdentityRole<int>
+    {
+        public List<UserRole> UserRoles { get; set; }
+    }
+}

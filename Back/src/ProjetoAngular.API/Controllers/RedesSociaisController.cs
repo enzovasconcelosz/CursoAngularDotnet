@@ -120,8 +120,8 @@ namespace ProjetoAngular.API.Controllers
                 var RedeSocial = await _redeSocialService.GetRedeSocialEventoByIdsAsync(eventoId, redeSocialId);
                 if (RedeSocial == null) return NoContent();
 
-                return await _redeSocialService.DeleteByEvento(eventoId, redeSocialId) 
-                       ? Ok(new { message = "Rede Social Deletada" }) 
+                return await _redeSocialService.DeleteByEvento(eventoId, redeSocialId)
+                       ? Ok(new { message = "Rede Social Deletada" })
                        : throw new Exception("Ocorreu um problem não específico ao tentar deletar Rede Social por Evento.");
             }
             catch (Exception ex)
@@ -142,8 +142,8 @@ namespace ProjetoAngular.API.Controllers
                 var RedeSocial = await _redeSocialService.GetRedeSocialPalestranteByIdsAsync(palestrante.Id, redeSocialId);
                 if (RedeSocial == null) return NoContent();
 
-                return await _redeSocialService.DeleteByPalestrante(palestrante.Id, redeSocialId) 
-                       ? Ok(new { message = "Rede Social Deletada" }) 
+                return await _redeSocialService.DeleteByPalestrante(palestrante.Id, redeSocialId)
+                       ? Ok(new { message = "Rede Social Deletada" })
                        : throw new Exception("Ocorreu um problem não específico ao tentar deletar Rede Social por Palestrante.");
             }
             catch (Exception ex)
@@ -156,10 +156,10 @@ namespace ProjetoAngular.API.Controllers
         [NonAction]
         private async Task<bool> AutorEvento(int eventoId)
         {
-            var evento = await _eventoService.GetEventoByIdAsync(
-                // User.GetUserId(),
-                eventoId, false);
-            if (evento == null) return false;
+            var evento = await _eventoService.GetEventoByIdAsync(User.GetUserId(), eventoId, false);
+
+            if (evento is null)
+                return false;
 
             return true;
         }
