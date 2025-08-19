@@ -55,7 +55,7 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                if (await _accountService.UserExists(userDto.UserName))
+                if (await _accountService.UserExists(userDto.UltimoNome))
                     return BadRequest("Usuário já existente.");
 
                 var user = await _accountService.CreateAccountAsync(userDto);
@@ -68,7 +68,7 @@ namespace ProjetoAngular.API.Controllers
                         token = _tokenService.CreateToken(user).Result
                     });
 
-                return BadRequest("Usuário não criado, tente novamente mais tarde!");
+                return BadRequest("Usuário não criado, tente novamente mais tarde.");
             }
             catch (Exception ex)
             {
@@ -86,7 +86,7 @@ namespace ProjetoAngular.API.Controllers
                 var user = await _accountService.GetUserByUserNameAsync(userLogin.Username);
 
                 if (user is null)
-                    return Unauthorized("Usuário ou Senha está errado");
+                    return Unauthorized("Usuário ou senha incorreto.");
 
                 var result = await _accountService.CheckUserPasswordAsync(user, userLogin.Password);
 
@@ -103,7 +103,7 @@ namespace ProjetoAngular.API.Controllers
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar realizar Login. Erro: {ex.Message}");
+                    $"Erro ao tentar realizar login. Erro: {ex.Message}");
             }
         }
 
@@ -113,12 +113,12 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 if (userUpdateDto.UserName != User.GetUserName())
-                    return Unauthorized("Usuário inválido");
+                    return Unauthorized("Usuário inválido.");
 
                 var user = await _accountService.GetUserByUserNameAsync(User.GetUserName());
 
                 if (user is null)
-                    return Unauthorized("Usuário inválido");
+                    return Unauthorized("Usuário inválido.");
 
                 var userReturn = await _accountService.UpdateAccount(userUpdateDto);
 

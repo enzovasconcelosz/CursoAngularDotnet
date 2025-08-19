@@ -63,7 +63,7 @@ namespace ProjetoAngular.Application
             }
             catch (Exception ex)
             {
-                throw new Exception($"Erro ao tentar criar usuário. Erro: {ex.Message}");
+                throw new Exception($"Erro ao tentar criar usuário. Erro: {ex.Message} | {ex.InnerException} | {ex}");
             }
         }
 
