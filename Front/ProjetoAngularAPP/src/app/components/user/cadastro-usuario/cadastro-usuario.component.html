@@ -1,0 +1,189 @@
+<div class="row mt-4">
+  <div class="col-md-6 d-none d-md-block" style="height: 450px">
+    <div class="text-center col-md-12 my-auto side-heder">
+      <h1>Cadastro de Usuário</h1>
+      <img
+        src="../../../../assets/registerImage.png"
+        class="my-4"
+        alt=""
+        width="400px"
+      />
+    </div>
+  </div>
+  <div class="col-md-6">
+    <form [formGroup]="form" class="p-1" (ngSubmit)="registrar()">
+      <div class="pb-2 d-block d-md-none">
+        <h3 class="border-bottom">Cadastro de Usuário</h3>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-sm-6">
+          <label>Nome</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="primeiroNome"
+            [ngClass]="cssValidator(f.primeiroNome)"
+            placeholder="Insira seu primeiroNome"
+          />
+          <div *ngIf="f.primeiroNome.errors?.required" class="invalid-feedback">
+            O campo "Nome" é obrigatório.
+          </div>
+          <div
+            *ngIf="f.primeiroNome.errors?.minlength"
+            class="invalid-feedback"
+          >
+            O campo "Nome" deve conter no mínimo 2 caracteres.
+          </div>
+          <div *ngIf="f.primeiroNome.errors?.maxlegth" class="invalid-feedback">
+            O campo "Nome" deve conter no máximo 15 caracteres.
+          </div>
+        </div>
+        <div class="form-group col-sm-6">
+          <label>Sobrenome</label>
+          <input
+            type="text"
+            class="form-control"
+            formControlName="ultimoNome"
+            [ngClass]="cssValidator(f.ultimoNome)"
+            placeholder="Insira seu sobrenome"
+          />
+          <div *ngIf="f.ultimoNome.errors?.required" class="invalid-feedback">
+            O campo "Sobrenome" é obrigatório.
+          </div>
+          <div *ngIf="f.ultimoNome.errors?.minlength" class="invalid-feedback">
+            O campo "Sobrenome" deve conter no mínimo 2 caracteres.
+          </div>
+          <div *ngIf="f.ultimoNome.errors?.maxlength" class="invalid-feedback">
+            O campo "Sobrenome" deve conter no máximo 50 caracteres.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">E-mail:</label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="email"
+          [ngClass]="cssValidator(f.email)"
+          placeholder="Insira seu e-mail"
+        />
+        <div *ngIf="f.email.errors?.required" class="invalid-feedback">
+          O campo "E-mail" é obrigatório.
+        </div>
+        <div *ngIf="f.email.errors?.email" class="invalid-feedback">
+          O e-mail digitado não é válido.
+        </div>
+        <div *ngIf="f.email.errors?.maxlength" class="invalid-feedback">
+          O campo "E-mail" deve conter no máximo 40 caracteres.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Usuário:</label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="userName"
+          [ngClass]="cssValidator(f.userName)"
+          placeholder="Insira o nome de usuário"
+        />
+        <div *ngIf="f.userName.errors?.required" class="invalid-feedback">
+          O campo "Usuário" é obrigatório.
+        </div>
+        <div *ngIf="f.userName.errors?.minlength" class="invalid-feedback">
+          O campo "Usuário" deve conter no mínimo 6 caracteres.
+        </div>
+        <div *ngIf="f.userName.errors?.maxlength" class="invalid-feedback">
+          O campo "Usuário" deve conter no máximo 30 caracteres.
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-sm-6">
+          <label for="">Password:</label>
+          <input
+            class="form-control"
+            type="password"
+            formControlName="password"
+            [ngClass]="cssValidator(f.password)"
+            placeholder="Digite a senha desejada"
+          />
+          <div *ngIf="f.password.errors?.required" class="invalid-feedback">
+            O campo "Senha" é obrigatório.
+          </div>
+          <div *ngIf="f.password.errors?.minlength" class="invalid-feedback">
+            O campo "Senha" deve conter no mínimo 6 caracteres.
+          </div>
+          <div *ngIf="f.password.errors?.maxlength" class="invalid-feedback">
+            O campo "Senha" deve conter no máximo 20 caracteres.
+          </div>
+        </div>
+        <div class="form-group col-sm-6">
+          <label for="">Confirmar password:</label>
+          <input
+            class="form-control"
+            type="password"
+            formControlName="confirmarPassword"
+            [ngClass]="cssValidator(f.confirmarPassword)"
+            placeholder="Confirme sua senha"
+          />
+          <div
+            *ngIf="f.confirmarPassword.errors?.required"
+            class="invalid-feedback"
+          >
+            O campo "Confirmar senha" é obrigatório.
+          </div>
+          <div
+            *ngIf="f.confirmarPassword.errors?.minlength"
+            class="invalid-feedback"
+          >
+            O campo "Confirmar senha" deve conter no mínimo 6 caracteres.
+          </div>
+          <div
+            *ngIf="f.confirmarPassword.errors?.maxlength"
+            class="invalid-feedback"
+          >
+            O campo "Confirmar senha" deve conter no máximo 20 caracteres.
+          </div>
+          <div
+            *ngIf="f.confirmarPassword.errors?.precisaSerIgual"
+            class="invalid-feedback"
+          >
+            A senha informada não está condizente com o campo "Senha".
+          </div>
+        </div>
+      </div>
+      <div class="form-row p-1 mb-3">
+        <div class="custom-control custom-checkbox">
+          <input
+            type="checkbox"
+            class="custom-control-input"
+            id="customCheck1"
+          />
+          <label class="custom-control-label"
+            >Eu concordo com os <a href="#">Termos de Uso</a>.</label
+          >
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <button
+            [disabled]="!form.valid"
+            class="btn btn-lg btn-success btn-block px-5"
+            type="submit"
+          >
+            Cadastrar
+          </button>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-12">
+          <a
+            class="btn btn-link btn-block bg-secondary"
+            routerLink="/user/login"
+          >
+            Já sou cadastrado
+          </a>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
