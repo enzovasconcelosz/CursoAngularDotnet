@@ -12,7 +12,7 @@ namespace ProjetoAngular.API.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class RedesSociaisController : ControllerBase
+    public class RedeSociaiController : ControllerBase
     {
         private readonly IRedeSocialService _redeSocialService;
 
@@ -20,7 +20,7 @@ namespace ProjetoAngular.API.Controllers
 
         private readonly IPalestranteService _palestranteService;
 
-        public RedesSociaisController(IRedeSocialService RedeSocialService,
+        public RedeSociaiController(IRedeSocialService RedeSocialService,
                                       IEventoService eventoService,
                                       IPalestranteService palestranteService)
         {
@@ -34,18 +34,20 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                if (!(await AutorEvento(eventoId)))
+                if (!await AutorEvento(eventoId))
                     return Unauthorized();
 
                 var redeSocial = await _redeSocialService.GetAllByEventoIdAsync(eventoId);
-                if (redeSocial == null) return NoContent();
+
+                if (redeSocial is null)
+                    return NoContent();
 
                 return Ok(redeSocial);
             }
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar recuperar Rede Social por Evento. Erro: {ex.Message}");
+                    $"Erro ao buscar a rede social. Erro: {ex.Message}");
             }
         }
 
@@ -55,17 +57,21 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 var palestrante = await _palestranteService.GetPalestranteByUserIdAsync(User.GetUserId());
-                if (palestrante == null) return Unauthorized();
+
+                if (palestrante is null)
+                    return Unauthorized();
 
                 var redeSocial = await _redeSocialService.GetAllByPalestranteIdAsync(palestrante.Id);
-                if (redeSocial == null) return NoContent();
+
+                if (redeSocial is null)
+                    return NoContent();
 
                 return Ok(redeSocial);
             }
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar recuperar Rede Social por Palestrante. Erro: {ex.Message}");
+                    $"Erro ao buscar a rede social. Erro: {ex.Message}");
             }
         }
 
@@ -74,18 +80,20 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                if (!(await AutorEvento(eventoId)))
+                if (!await AutorEvento(eventoId))
                     return Unauthorized();
 
                 var redeSocial = await _redeSocialService.SaveByEvento(eventoId, models);
-                if (redeSocial == null) return NoContent();
+
+                if (redeSocial is null)
+                    return NoContent();
 
                 return Ok(redeSocial);
             }
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar salvar Rede Social por Evento. Erro: {ex.Message}");
+                    $"Erro ao salvar a rede social. Erro: {ex.Message}");
             }
         }
 
@@ -95,17 +103,21 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 var palestrante = await _palestranteService.GetPalestranteByUserIdAsync(User.GetUserId());
-                if (palestrante == null) return Unauthorized();
+
+                if (palestrante is null)
+                    return Unauthorized();
 
                 var redeSocial = await _redeSocialService.SaveByPalestrante(palestrante.Id, models);
-                if (redeSocial == null) return NoContent();
+
+                if (redeSocial is null)
+                    return NoContent();
 
                 return Ok(redeSocial);
             }
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar salvar Rede Social por Palestrante. Erro: {ex.Message}");
+                    $"Erro ao salvar a rede social. Erro: {ex.Message}");
             }
         }
 
@@ -114,20 +126,22 @@ namespace ProjetoAngular.API.Controllers
         {
             try
             {
-                if (!(await AutorEvento(eventoId)))
+                if (!await AutorEvento(eventoId))
                     return Unauthorized();
 
                 var RedeSocial = await _redeSocialService.GetRedeSocialEventoByIdsAsync(eventoId, redeSocialId);
-                if (RedeSocial == null) return NoContent();
+
+                if (RedeSocial is null)
+                    return NoContent();
 
                 return await _redeSocialService.DeleteByEvento(eventoId, redeSocialId)
-                       ? Ok(new { message = "Rede Social Deletada" })
-                       : throw new Exception("Ocorreu um problem não específico ao tentar deletar Rede Social por Evento.");
+                       ? Ok(new { message = "Rede social excluida." })
+                       : throw new Exception("Ocorreu um erro ao excluir a rede social.");
             }
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar deletar Rede Social por Evento. Erro: {ex.Message}");
+                    $"Erro ao tentar excluir a rede social. Erro: {ex.Message}");
             }
         }
 
@@ -137,19 +151,23 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 var palestrante = await _palestranteService.GetPalestranteByUserIdAsync(User.GetUserId());
-                if (palestrante == null) return Unauthorized();
+
+                if (palestrante is null)
+                    return Unauthorized();
 
                 var RedeSocial = await _redeSocialService.GetRedeSocialPalestranteByIdsAsync(palestrante.Id, redeSocialId);
-                if (RedeSocial == null) return NoContent();
+
+                if (RedeSocial is null)
+                    return NoContent();
 
                 return await _redeSocialService.DeleteByPalestrante(palestrante.Id, redeSocialId)
-                       ? Ok(new { message = "Rede Social Deletada" })
-                       : throw new Exception("Ocorreu um problem não específico ao tentar deletar Rede Social por Palestrante.");
+                       ? Ok(new { message = "Rede social excluida." })
+                       : throw new Exception("Ocorreu um erro excluir a rede social.");
             }
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar deletar Rede Social por Palestrante. Erro: {ex.Message}");
+                    $"Erro ao tentar excluir a rede social. Erro: {ex.Message}");
             }
         }
 

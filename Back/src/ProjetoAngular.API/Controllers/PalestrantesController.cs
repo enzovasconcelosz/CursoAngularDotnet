@@ -4,7 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using ProjetoAngular.Application.Contratos;
 using Microsoft.AspNetCore.Http;
 using ProjetoAngular.Application.Dtos;
-using Microsoft.AspNetCore.Hosting;
 using ProjetoAngular.API.Extensions;
 using Microsoft.AspNetCore.Authorization;
 using ProjetoAngular.Persistence.Models;
@@ -18,26 +17,20 @@ namespace ProjetoAngular.API.Controllers
     {
         private readonly IPalestranteService _palestranteService;
 
-        private readonly IWebHostEnvironment _hostEnvironment;
-
-        private readonly IAccountService _accountService;
-
-        public PalestrantesController(IPalestranteService palestranteService,
-                                      IWebHostEnvironment hostEnvironment,
-                                      IAccountService accountService)
+        public PalestrantesController(IPalestranteService palestranteService)
         {
-            _hostEnvironment = hostEnvironment;
-            _accountService = accountService;
             _palestranteService = palestranteService;
         }
 
         [HttpGet("all")]
-        public async Task<IActionResult> GetAll([FromQuery]PageParams pageParams)
+        public async Task<IActionResult> GetAll([FromQuery] PageParams pageParams)
         {
             try
             {
                 var palestrantes = await _palestranteService.GetAllPalestrantesAsync(pageParams, true);
-                if (palestrantes == null) return NoContent();
+
+                if (palestrantes is null)
+                    return NoContent();
 
                 Response.AddPagination(palestrantes.CurrentPage,
                                        palestrantes.PageSize,
@@ -49,7 +42,7 @@ namespace ProjetoAngular.API.Controllers
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar recuperar palestrantes. Erro: {ex.Message}");
+                    $"Erro ao tentar buscar palestrantes. Erro: {ex.Message}");
             }
         }
 
@@ -59,14 +52,16 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 var palestrante = await _palestranteService.GetPalestranteByUserIdAsync(User.GetUserId(), true);
-                if (palestrante == null) return NoContent();
+
+                if (palestrante is null)
+                    return NoContent();
 
                 return Ok(palestrante);
             }
             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
-                    $"Erro ao tentar recuperar palestrantes. Erro: {ex.Message}");
+                    $"Erro ao tentar buscar palestrantes. Erro: {ex.Message}");
             }
         }
 
@@ -76,7 +71,8 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 var palestrante = await _palestranteService.GetPalestranteByUserIdAsync(User.GetUserId(), false);
-                if (palestrante == null)
+
+                if (palestrante is null)
                     palestrante = await _palestranteService.AddPalestrantes(User.GetUserId(), model);
 
                 return Ok(palestrante);
@@ -94,7 +90,9 @@ namespace ProjetoAngular.API.Controllers
             try
             {
                 var palestrante = await _palestranteService.UpdatePalestrante(User.GetUserId(), model);
-                if (palestrante == null) return NoContent();
+
+                if (palestrante is null)
+                    return NoContent();
 
                 return Ok(palestrante);
             }

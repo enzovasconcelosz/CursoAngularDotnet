@@ -15,7 +15,7 @@ namespace ProjetoAngular.Persistence
         {
             _context = context;
         }
-        
+
         public async Task<RedeSocial> GetRedeSocialEventoByIdsAsync(int eventoId, int id)
         {
             IQueryable<RedeSocial> query = _context.RedesSociais;
@@ -26,7 +26,7 @@ namespace ProjetoAngular.Persistence
 
             return await query.FirstOrDefaultAsync();
         }
-        
+
         public async Task<RedeSocial> GetRedeSocialPalestranteByIdsAsync(int palestranteId, int id)
         {
             IQueryable<RedeSocial> query = _context.RedesSociais;
@@ -37,7 +37,7 @@ namespace ProjetoAngular.Persistence
 
             return await query.FirstOrDefaultAsync();
         }
-        
+
         public async Task<RedeSocial[]> GetAllByEventoIdAsync(int eventoId)
         {
             IQueryable<RedeSocial> query = _context.RedesSociais;
@@ -47,7 +47,7 @@ namespace ProjetoAngular.Persistence
 
             return await query.ToArrayAsync();
         }
-        
+
         public async Task<RedeSocial[]> GetAllByPalestranteIdAsync(int palestranteId)
         {
             IQueryable<RedeSocial> query = _context.RedesSociais;
