@@ -38,8 +38,8 @@ namespace ProjetoAngular.Application.Dtos
         [EmailAddress(ErrorMessage = "O campo {0} não contém um e-mail válido.")]
         public string EmailPrincipal { get; set; }
 
-        // public int UserId { get; set; }
-        // public UserDto UserDto { get; set; }
+        public int UserId { get; set; }
+        public UserDto UserDto { get; set; }
 
         // public IEnumerable<LoteDto> Lotes { get; set; }
         // public IEnumerable<RedeSocialDto> RedesSociais { get; set; }

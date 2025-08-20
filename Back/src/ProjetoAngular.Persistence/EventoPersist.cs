@@ -11,55 +11,50 @@ namespace ProjetoAngular.Persistence
     public class EventoPersist : IEventoPersist
     {
         private readonly ProjetoAngularContext _context;
+        
         public EventoPersist(ProjetoAngularContext context)
         {
             _context = context;
         }
 
-        public async Task<Evento[]> GetAllEventosAsync(int userId, bool includePalestrantes = false)
+        public async Task<PageList<Evento>> GetAllEventosAsync(int userId, PageParams pageParams, bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _context.Eventos
-                .Include(e => e.Lotes)
-                .Include(e => e.RedesSociais);
+                                       .Include(e => e.Lotes)
+                                       .Include(e => e.RedesSociais);
 
             if (includePalestrantes)
             {
                 query = query
-                    .Include(e => e.PalestrantesEventos)
-                    .ThenInclude(pe => pe.Palestrante);
+                        .Include(e => e.PalestrantesEventos)
+                        .ThenInclude(pe => pe.Palestrante);
             }
 
             query = query.AsNoTracking()
-                         .Where(e =>
-                        //  (
-                                      // e.Tema.ToLower().Contains(pageParams.Term.ToLower()) ||
-                                      //           e.Local.ToLower().Contains(pageParams.Term.ToLower()))
-                                      //   &&
-                                      e.UserId == userId
-                                     )
+                         .Where(e => (e.Tema.ToLower().Contains(pageParams.Term.ToLower()) ||
+                                      e.Local.ToLower().Contains(pageParams.Term.ToLower())) &&
+                                      e.UserId == userId)
                          .OrderBy(e => e.Id);
 
-            return await query.ToArrayAsync();
-
-            // return await PageList<Evento>.CreateAsync(query, pageParams.PageNumber, pageParams.pageSize);
+            return await PageList<Evento>.CreateAsync(query, pageParams.PageNumber, pageParams.pageSize);
         }
 
         public async Task<Evento> GetEventoByIdAsync(int userId, int eventoId, bool includePalestrantes = false)
         {
             IQueryable<Evento> query = _context.Eventos
-                .Include(e => e.Lotes)
-                .Include(e => e.RedesSociais);
+                                       .Include(e => e.Lotes)
+                                       .Include(e => e.RedesSociais);
 
             if (includePalestrantes)
             {
                 query = query
-                    .Include(e => e.PalestrantesEventos)
-                    .ThenInclude(pe => pe.Palestrante);
+                        .Include(e => e.PalestrantesEventos)
+                        .ThenInclude(pe => pe.Palestrante);
             }
 
             query = query.AsNoTracking().OrderBy(e => e.Id)
-                         .Where(e => e.Id == eventoId
-                         && e.UserId == userId);
+                         .Where(e => e.Id == eventoId &&
+                                     e.UserId == userId);
 
             return await query.FirstOrDefaultAsync();
         }

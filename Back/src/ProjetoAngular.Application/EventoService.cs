@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using AutoMapper;
 using ProjetoAngular.Application.Contratos;
@@ -60,7 +59,7 @@ namespace ProjetoAngular.Application
                     return null;
 
                 model.Id = evento.Id;
-                // model.UserId = userId;
+                model.UserId = userId;
 
                 _mapper.Map(model, evento);
                 _geralPersist.Update<Evento>(evento);
@@ -98,32 +97,23 @@ namespace ProjetoAngular.Application
             }
         }
 
-        public async Task<IEnumerable<EventoDto>> GetAllEventosAsync(int userId, bool includePalestrantes = false)
+        public async Task<PageList<EventoDto>> GetAllEventosAsync(int userId, PageParams pageParams, bool includePalestrantes = false)
         {
             try
             {
-                var eventos = await _eventoPersist.GetAllEventosAsync(userId,
-                     //  pageParams,
-                     includePalestrantes);
+                var eventos = await _eventoPersist.GetAllEventosAsync(userId, pageParams, includePalestrantes);
 
                 if (eventos is null)
                     return null;
 
-                var lista = new List<EventoDto>();
+                var resultado = _mapper.Map<PageList<EventoDto>>(eventos);
 
-                foreach (var evento in eventos)
-                {
-                    var resultado = _mapper.Map<EventoDto>(evento);
+                resultado.CurrentPage = eventos.CurrentPage;
+                resultado.TotalPages = eventos.TotalPages;
+                resultado.PageSize = eventos.PageSize;
+                resultado.TotalCount = eventos.TotalCount;
 
-                    lista.Add(resultado);
-                }
-
-                // resultado.CurrentPage = eventos.CurrentPage;
-                // resultado.TotalPages = eventos.TotalPages;
-                // resultado.PageSize = eventos.PageSize;
-                // resultado.TotalCount = eventos.TotalCount;
-
-                return lista;
+                return resultado;
             }
             catch (Exception ex)
             {

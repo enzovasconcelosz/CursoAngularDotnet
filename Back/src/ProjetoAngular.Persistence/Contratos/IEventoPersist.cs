@@ -1,11 +1,12 @@
 using System.Threading.Tasks;
 using ProjetoAngular.Domain;
+using ProjetoAngular.Persistence.Models;
 
 namespace ProjetoAngular.Persistence.Contratos
 {
     public interface IEventoPersist
     {
-        Task<Evento[]> GetAllEventosAsync(int userId, bool includePalestrantes = false);
+        Task<PageList<Evento>> GetAllEventosAsync(int userId, PageParams pageParams, bool includePalestrantes = false);
 
         Task<Evento> GetEventoByIdAsync(int userId, int eventoId, bool includePalestrantes = false);
     }

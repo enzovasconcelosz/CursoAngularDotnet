@@ -1,6 +1,6 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
 using ProjetoAngular.Application.Dtos;
+using ProjetoAngular.Persistence.Models;
 
 namespace ProjetoAngular.Application.Contratos
 {
@@ -12,7 +12,7 @@ namespace ProjetoAngular.Application.Contratos
 
         Task<bool> DeleteEvento(int userId, int eventoId);
 
-        Task<IEnumerable<EventoDto>> GetAllEventosAsync(int userId, bool includePalestrantes = false);
+        Task<PageList<EventoDto>> GetAllEventosAsync(int userId, PageParams pageParams, bool includePalestrantes = false);
 
         Task<EventoDto> GetEventoByIdAsync(int userId, int eventoId, bool includePalestrantes = false);
     }

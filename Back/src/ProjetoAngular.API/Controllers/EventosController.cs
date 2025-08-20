@@ -34,16 +34,16 @@ namespace ProjetoAngular.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get([FromQuery] PageParams pageParams)
         {
             try
             {
-                var eventos = await _eventoService.GetAllEventosAsync(User.GetUserId(), true);
+                var eventos = await _eventoService.GetAllEventosAsync(User.GetUserId(), pageParams, true);
 
                 if (eventos is null)
                     return NoContent();
 
-                // Response.AddPagination(eventos.CurrentPage, eventos.PageSize, eventos.TotalCount, eventos.TotalPages);
+                Response.AddPagination(eventos.CurrentPage, eventos.PageSize, eventos.TotalCount, eventos.TotalPages);
 
                 return Ok(eventos);
             }
