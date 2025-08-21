@@ -28,30 +28,28 @@ export class EventoListaComponent implements OnInit {
 
   public filtrarEventos(event: any): void {
     if (this.termoBuscaChanged.observers.length === 0) {
-      this.termoBuscaChanged
-        .pipe(debounceTime(500))
-        .subscribe((filtrarPor) => {
-          this.spinner.show();
+      this.termoBuscaChanged.pipe(debounceTime(500)).subscribe((filtrarPor) => {
+        this.spinner.show();
 
-          this.eventoService
-            .getEventos(
-              this.pagination.currentPage,
-              this.pagination.itemsPerPage,
-              event.value
-            )
-            .subscribe(
-              (paginatedResponse: PaginatedResult<Evento[]>) => {
-                this.eventos = paginatedResponse.result;
-                this.pagination = paginatedResponse.pagination;
-              },
-              (error: any) => {
-                this.spinner.hide();
-                this.toastr.error('Erro ao carregar os eventos.', 'Erro!');
-                console.log(error);
-              }
-            )
-            .add(() => this.spinner.hide());
-        });
+        this.eventoService
+          .getEventos(
+            this.pagination.currentPage,
+            this.pagination.itemsPerPage,
+            event.value
+          )
+          .subscribe(
+            (paginatedResponse: PaginatedResult<Evento[]>) => {
+              this.eventos = paginatedResponse.result;
+              this.pagination = paginatedResponse.pagination;
+            },
+            (error: any) => {
+              this.spinner.hide();
+              this.toastr.error('Erro ao carregar os eventos.', 'Erro!');
+              console.log(error);
+            }
+          )
+          .add(() => this.spinner.hide());
+      });
     }
 
     this.termoBuscaChanged.next(event.value);
@@ -126,10 +124,7 @@ export class EventoListaComponent implements OnInit {
             this.carregarEventos();
           }
         },
-        (error: any) => {
-          console.error(error);
-          this.toastr.error('Erro ao excluir o evento.', 'Erro!');
-        }
+        () => this.toastr.error('Erro ao excluir o evento.', 'Erro!')
       )
       .add(() => this.spinner.hide());
   }

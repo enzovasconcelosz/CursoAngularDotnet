@@ -1,4 +1,4 @@
-export class UserUdpate {
+export class UserUpdate {
   titulo: string;
 
   userName: string;

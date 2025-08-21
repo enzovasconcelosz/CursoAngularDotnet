@@ -100,10 +100,9 @@ export class EventoDetalhesComponent implements OnInit {
 
           this.carregarLotes();
         },
-        (error: any) => {
+        () => {
           this.spinner.hide();
           this.toastr.error('Erro ao carregar evento.', 'Erro!');
-          console.error(error);
         },
         () => this.spinner.hide()
       );
@@ -216,8 +215,7 @@ export class EventoDetalhesComponent implements OnInit {
 
           this.router.navigate([`eventos/detalhe/${eventoRetorno.id}`]);
         },
-        (error: any) => {
-          console.error(error);
+        () => {
           this.spinner.hide();
           this.toastr.error(
             `Erro ao ${!this.atualizar ? 'salvar' : 'atualizar'} o evento.`,
@@ -243,10 +241,7 @@ export class EventoDetalhesComponent implements OnInit {
             );
             this.lotes.reset();
           },
-          (error: any) => {
-            this.toastr.error('Erro ao cadastrar os lotes.', 'Erro.');
-            console.error(error);
-          }
+          () => this.toastr.error('Erro ao cadastrar os lotes.', 'Erro.')
         )
         .add(() => this.spinner.hide());
     }
@@ -271,10 +266,7 @@ export class EventoDetalhesComponent implements OnInit {
           this.toastr.success('O lote foi excluído com sucesso!', 'Sucesso!');
           this.lotes.removeAt(this.loteAtual.indice);
         },
-        (error: any) => {
-          this.toastr.error('Erro ao excluir o lote.', 'Erro.');
-          console.error(error);
-        }
+        () => this.toastr.error('Erro ao excluir o lote.', 'Erro.')
       )
       .add(() => this.spinner.hide());
   }
@@ -307,10 +299,7 @@ export class EventoDetalhesComponent implements OnInit {
             'Sucesso!'
           );
         },
-        (error: any) => {
-          this.toastr.error('Erro ao realizar upload da imagem.', 'Erro.');
-          console.error(error);
-        }
+        () => this.toastr.error('Erro ao realizar upload da imagem.', 'Erro.')
       )
       .add(() => this.spinner.hide());
   }

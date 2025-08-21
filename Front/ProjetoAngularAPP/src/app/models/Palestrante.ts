@@ -1,5 +1,5 @@
 import { Evento } from "./Evento";
-import { PalestranteEvento } from "./PalestranteEvento";
+import { User } from "./Identity/User";
 import { RedeSocial } from "./RedeSocial";
 
 export interface Palestrante {
@@ -9,7 +9,7 @@ export interface Palestrante {
 
   userId: number;
 
-//   User: User;
+  User: User;
 
   redesSociais: RedeSocial[];
 

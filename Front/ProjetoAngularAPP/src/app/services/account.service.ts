@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '@app/models/Identity/User';
-import { UserUdpate } from '@app/models/Identity/UserUpdate';
+import { UserUpdate } from '@app/models/Identity/UserUpdate';
 import { environment } from '@environ ments/environment';
 import { Observable, ReplaySubject } from 'rxjs';
 import { map, take } from 'rxjs/operators';
@@ -29,7 +29,7 @@ export class AccountService {
     );
   }
 
-  logout(): void {
+  public logout(): void {
     localStorage.removeItem('user');
     this.currentUserSource.next(null);
   }
@@ -52,16 +52,27 @@ export class AccountService {
     );
   }
 
-  public getUsuario(): Observable<UserUdpate> {
-    return this.http.get<UserUdpate>(this.baseURL + 'getUser').pipe(take(1));
+  public getUsuario(): Observable<UserUpdate> {
+    return this.http.get<UserUpdate>(this.baseURL + 'getUser').pipe(take(1));
   }
 
-  public updateUsuario(model: UserUdpate): Observable<void> {
-    return this.http.put<UserUdpate>(this.baseURL + 'updateUser', model).pipe(
+  public updateUsuario(model: UserUpdate): Observable<void> {
+    return this.http.put<UserUpdate>(this.baseURL + 'updateUser', model).pipe(
       take(1),
-      map((user: UserUdpate) => {
+      map((user: UserUpdate) => {
         this.setCurrentUser(user);
       })
     );
+  }
+
+  public postUpload(file: File): Observable<UserUpdate> {
+    const fileToUpload = file[0] as File;
+    const formData = new FormData();
+
+    formData.append('file', fileToUpload);
+
+    return this.http
+      .post<UserUpdate>(`${this.baseURL}upload-image`, formData)
+      .pipe(take(1));
   }
 }

@@ -12,7 +12,7 @@ namespace ProjetoAngular.API.Controllers
     [Authorize]
     [ApiController]
     [Route("api/[controller]")]
-    public class RedeSociaiController : ControllerBase
+    public class RedeSocialController : ControllerBase
     {
         private readonly IRedeSocialService _redeSocialService;
 
@@ -20,7 +20,7 @@ namespace ProjetoAngular.API.Controllers
 
         private readonly IPalestranteService _palestranteService;
 
-        public RedeSociaiController(IRedeSocialService RedeSocialService,
+        public RedeSocialController(IRedeSocialService RedeSocialService,
                                       IEventoService eventoService,
                                       IPalestranteService palestranteService)
         {

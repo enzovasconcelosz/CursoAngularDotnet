@@ -65,7 +65,7 @@
         <td>{{ evento.dataEvento | DateFormatPipe }}</td>
         <td class="d-none d-md-table-cell">{{ evento.quantidadePessoas }}</td>
         <td class="d-none d-md-table-cell">
-          <!-- {{ evento.lotes[0]?.nome | uppercase }} -->
+          {{ evento.lotes.length > 0 ? evento.lotes[0].nome : "" }}
         </td>
         <td>
           <button
